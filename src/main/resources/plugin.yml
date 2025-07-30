@@ -1,9 +1,10 @@
-name: ${project.name}
+name: RLunaChat
 main: com.github.ucchyocean.lc3.LunaChatBukkit
-version: ${project.version}
-authors: [ucchy, YukiLeafX, LazyGon, tomo1560]
-description: ${project.description}
+version: 3.1.0-BETA
+authors: [ucchy, YukiLeafX, LazyGon, tomo1560, JF9TGL]
+description: "a chat plugin for Bukkit/Spigot/Paper servers.\nLunaChat is a chat plugin that supports multiple channels, 1 on 1 chat, and many other features.\nIt also has a japanize conversion feature that converts the text to Japanese characters."
 softdepend: [Vault, dynmap, Multiverse-Core, mcMMO]
+api-version: '1.18.2'
 
 commands:
   lunachat:

@@ -8,7 +8,6 @@ package com.github.ucchyocean.lc3.util;
 import junit.framework.TestCase;
 
 /**
- *
  * @author ucchy
  */
 public class UtilityTest extends TestCase {
@@ -18,11 +17,11 @@ public class UtilityTest extends TestCase {
         String testee = "#FFEEDDtesuto#112233aiueo";
         System.out.println(Utility.replaceColorCode(testee));
 
-        assertTrue("§x§F§F§E§E§D§Dtesuto§x§1§1§2§2§3§3aiueo".equals(Utility.replaceColorCode(testee)));
+        assertEquals("§x§F§F§E§E§D§Dtesuto§x§1§1§2§2§3§3aiueo", Utility.replaceColorCode(testee));
 
         testee = "#FEDtesuto#123aiueo";
         System.out.println(Utility.replaceColorCode(testee));
 
-        assertTrue("§x§F§F§E§E§D§Dtesuto§x§1§1§2§2§3§3aiueo".equals(Utility.replaceColorCode(testee)));
+        assertEquals("§x§F§F§E§E§D§Dtesuto§x§1§1§2§2§3§3aiueo", Utility.replaceColorCode(testee));
     }
 }

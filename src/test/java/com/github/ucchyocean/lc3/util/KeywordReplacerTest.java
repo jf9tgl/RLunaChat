@@ -8,7 +8,6 @@ package com.github.ucchyocean.lc3.util;
 import junit.framework.TestCase;
 
 /**
- *
  * @author ucchy
  */
 public class KeywordReplacerTest extends TestCase {
@@ -18,14 +17,14 @@ public class KeywordReplacerTest extends TestCase {
     public void testSpeedOfReplacement() {
 
         String testee = "";
-        for ( int i=1; i<=MAX; i++ ) {
+        for (int i = 1; i <= MAX; i++) {
             testee += String.format("%%test%d%%%d", i, i);
         }
 
 
-        String test1 = new String(testee);
+        String test1 = testee;
         long start = System.currentTimeMillis();
-        for ( int i=1; i<=MAX; i++ ) {
+        for (int i = 1; i <= MAX; i++) {
             test1 = test1.replace("%test" + i + "%", i + "");
         }
         long time = System.currentTimeMillis() - start;
@@ -34,13 +33,13 @@ public class KeywordReplacerTest extends TestCase {
 
         KeywordReplacer test2 = new KeywordReplacer(testee);
         start = System.currentTimeMillis();
-        for ( int i=1; i<=MAX; i++ ) {
+        for (int i = 1; i <= MAX; i++) {
             test2.replace("%test" + i + "%", i + "");
         }
         time = System.currentTimeMillis() - start;
         System.out.println("test2 time = " + time);
 
-        assertTrue(test1.equals(test2.toString()));
+        assertEquals(test1, test2.toString());
     }
 
     public void testSafetyOfRecursiveReplacement() {
@@ -57,10 +56,10 @@ public class KeywordReplacerTest extends TestCase {
         test1.replace(keyword, val1);
         test1.replace(keyword, val2);
         long time = System.currentTimeMillis() - start;
-        System.out.println("test1 time = " + time + ", str = " + test1.toString());
+        System.out.println("test1 time = " + time + ", str = " + test1);
 
 
-        String test2 = new String(testee);
+        String test2 = testee;
         start = System.currentTimeMillis();
         test2 = test2.replace(keyword, val1);
         test2 = test2.replace(keyword, val2);
@@ -68,6 +67,6 @@ public class KeywordReplacerTest extends TestCase {
         System.out.println("test2 time = " + time + ", str = " + test2);
 
 
-        assertTrue(test1.toString().equals(test2));
+        assertEquals(test1.toString(), test2);
     }
 }
